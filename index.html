@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeneralLazar | Roblox UI Designer</title>
+<style>
+:root{--glass:rgba(255,255,255,.09);--b:rgba(255,255,255,.18)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 20% 20%,#3b82f633,transparent 35%),radial-gradient(circle at 80% 70%,#a855f733,transparent 35%),#0a0d14;color:#fff;overflow-x:hidden}
+nav,.glass{backdrop-filter:blur(36px) saturate(180%);-webkit-backdrop-filter:blur(36px) saturate(180%);background:var(--glass);border:1px solid var(--b);position:relative;overflow:hidden}
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:min(1100px,92%);padding:18px 30px;border-radius:22px;display:flex;justify-content:space-between;z-index:10}
+nav a{color:#fff;text-decoration:none;margin-left:20px;opacity:.8}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:120px 8%}
+h1{font-size:4rem}.accent{background:linear-gradient(90deg,#fff,#87b7ff,#d0b3ff);-webkit-background-clip:text;color:transparent}
+p{color:#d2d8e5;line-height:1.8;margin:25px 0}
+.btn{display:inline-block;padding:16px 28px;border-radius:18px;background:var(--glass);border:1px solid var(--b);color:#fff;text-decoration:none;margin-right:15px;transition:.35s}
+.glass{border-radius:32px;padding:32px;box-shadow:0 25px 70px #0007;transition:transform .35s ease,box-shadow .35s ease}
+.glass::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.18),transparent 55%);pointer-events:none}
+.glass:hover{transform:translateY(-6px);box-shadow:0 35px 90px #0008}
+.card{margin-top:18px;padding:18px;border-radius:20px;background:#ffffff10}
+footer{text-align:center;padding:40px;color:#9aa4b8}
+@media(max-width:900px){.hero{grid-template-columns:1fr}h1{font-size:2.8rem}}
+</style>
+</head>
+<body>
+<nav><strong>GeneralLazar</strong><div><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<section class="hero">
+<div><div class="glass">
+<h1><span class="accent">GeneralLazar</span></h1>
+<h2>Roblox UI Designer • Builder • Project Manager</h2>
+<p>I create polished Roblox interfaces with a premium feel, combining clean layouts, intuitive UX, efficient building, and organized project management.</p>
+<a class="btn" href="https://www.roblox.com/users/10788366064/profile" target="_blank">Roblox Profile</a>
+<a class="btn" href="#contact">Discord</a>
+</div></div>
+<div class="glass">
+<h2>Skills</h2>
+<div class="card">Premium UI Design</div>
+<div class="card">Roblox Building</div>
+<div class="card">Project Management</div>
+
+
+</div>
+</section>
+<section id="about" style="padding:0 8% 80px"><div class="glass"><h2>About Me</h2><p>I focus on building polished interfaces with attention to detail.</p></div></section>
+<section id="contact" style="padding:0 8% 80px"><div class="glass"><h2>Contact</h2><p><b>Discord:</b> GeneralLazar<br><b>Roblox:</b> GeneralLazar</p></div></section>
+<footer>© 2026 GeneralLazar</footer>
+<script>
+document.querySelectorAll('.glass').forEach(card=>{
+ card.addEventListener('mousemove',e=>{
+  const r=card.getBoundingClientRect();
+  const x=((e.clientX-r.left)/r.width)*100;
+  const y=((e.clientY-r.top)/r.height)*100;
+  card.style.background=`radial-gradient(circle at ${x}% ${y}%,rgba(255,255,255,.16),rgba(255,255,255,.08) 45%)`;
+  const rx=((e.clientY-r.top)-r.height/2)/30;
+  const ry=((e.clientX-r.left)-r.width/2)/-30;
+  card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+ });
+ card.addEventListener('mouseleave',()=>{
+  card.style.transform='perspective(900px) rotateX(0) rotateY(0)';
+  card.style.background='rgba(255,255,255,.09)';
+ });
+});
+</script>
+</body></html>
